@@ -1,0 +1,16 @@
+function getSecondLargest(nums) {
+    // Complete the function
+    let largestSoFar = -2147483647 - 1;
+    let secondLargestSoFar = -2147483647 - 1;
+    for (let i=0;i<nums.length; i++) {
+        if (nums[i] < largestSoFar && nums[i] > secondLargestSoFar) {
+            secondLargestSoFar = nums[i];
+        }
+        else if (nums[i] > largestSoFar) {
+            secondLargestSoFar = largestSoFar;
+            largestSoFar = nums[i];
+        }
+    }
+
+    return secondLargestSoFar;
+}
