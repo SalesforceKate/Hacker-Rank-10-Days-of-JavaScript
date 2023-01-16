@@ -1,0 +1,22 @@
+/*
+ * Complete the vowelsAndConsonants function.
+ * Print your output using 'console.log()'.
+ */
+function vowelsAndConsonants(s) {
+    let vowelArray = [];
+    let consArray = [];
+    const sArray = s.split('');
+    
+    for (let i=0; i < sArray.length; i++){
+      if (sArray[i]=="a" || sArray[i]=="e" || sArray[i]=="i" || sArray[i]=="o" || sArray[i]=="u"){
+        vowelArray.push(sArray[i]);
+      } else {
+        consArray.push(sArray[i]);
+      }
+    }
+    const letters = vowelArray.concat(consArray);
+    
+    for (let i=0; i < letters.length; i++){
+      console.log(letters[i]);
+    }
+}
