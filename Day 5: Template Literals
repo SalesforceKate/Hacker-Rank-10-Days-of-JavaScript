@@ -1,0 +1,15 @@
+function sides(literals, ...expressions) {
+    //area is the first tag, perimeter is the second tag
+    const A = expressions[0];
+    const P = expressions[1];
+    // calculate the sides
+    const s1 = (P + Math.sqrt(P**2 - (16*A)))/4;
+    const s2 = (P - Math.sqrt(P**2 - (16*A)))/4;
+    // add sides to an array
+    let sides=[];
+    sides.push(s1);
+    sides.push(s2);
+    // sort and return the array
+    sides.sort();
+    return sides;
+}
