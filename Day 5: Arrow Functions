@@ -1,0 +1,4 @@
+function modifyArray(nums) {
+    // % is falsy thus the condition.
+    return nums.map(n => {if(n%2) return n*3; else return n*2});
+}
