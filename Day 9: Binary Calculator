@@ -68,29 +68,46 @@ function clickBtnClr()
 }
 function clickBtnSum()
 {
-    // only append + if no operator is there
-    if(res.innerHTML.indexOf("+") == -1 && res.innerHTML.indexOf("-") == -1) && res.innerHTML.indexOf("*") == -1) && res.innerHTML.indexOf("/") == -1) {
+    // only append only if no operator is there
+    if(opPres()===false)
+    {
       res.innerHTML = res.innerHTML + '+';
     }
 }
 function clickBtnSub()
 {
-    // only append - if it's not there
-    if(res.innerHTML.indexOf("-") == -1) {
+    // only append only if no operator is there
+    if(opPres()===false)
+    {
       res.innerHTML = res.innerHTML + '-';
     }
 }
 function clickBtnMul()
 {
-    // only append * if it's not there
-    if(res.innerHTML.indexOf("*") == -1) {
+    // only append only if no operator is there
+    if(opPres()===false)
+    {
       res.innerHTML = res.innerHTML + '*';
     }
 }
 function clickBtnDiv()
 {
-    // only append * if it's not there
-    if(res.innerHTML.indexOf("*") == -1) {
-      res.innerHTML = res.innerHTML + '*';
+    // only append only if no operator is there
+    if(opPres()===false) 
+    {
+      res.innerHTML = res.innerHTML + '/';
     }
+}
+// check to see if an operator is present
+function opPres()
+{
+  let present;
+  if(res.innerHTML.indexOf("+") == -1 &&
+       res.innerHTML.indexOf("-") == -1 && 
+       res.innerHTML.indexOf("*") == -1 && 
+       res.innerHTML.indexOf("/") == -1) 
+    {
+      present=false;
+  } else present = true;
+  return present;
 }
