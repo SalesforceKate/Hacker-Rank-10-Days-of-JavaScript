@@ -4,22 +4,23 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Button</title>
-        
+        <title>Binary Calculator</title>
+        <link rel="stylesheet" href="css/binaryCalculator.css" type="text/css">
     </head>
     <body>
-      <div id="res"></div>
+        <div id="res"></div>
         
         <div id="btns" class="buttonContainer">
             <button id="btn0" onclick="clickBtn0()" class="buttonClass">0</button>
             <button id="btn1" onclick="clickBtn1()" class="buttonClass">1</button>
             <button id="btnClr" onclick="clickBtnClr()" class="buttonClass">C</button>
-            <button id="btnEql" onclick="" class="buttonClass">=</button>
+            <button id="btnEql" onclick="clickbtnEql()" class="buttonClass">=</button>
             <button id="btnSum" onclick="clickBtnSum()" class="buttonClass">+</button>
             <button id="btnSub" onclick="clickBtnSub()" class="buttonClass">-</button>
             <button id="btnMul" onclick="clickBtnMul()" class="buttonClass">*</button>
             <button id="btnDiv" onclick="clickBtnDiv()" class="buttonClass">/</button>
         </div>
+        <script src="js/binaryCalculator.js" type="text/javascript"></script>
     </body>
 </html>
 
@@ -98,6 +99,40 @@ function clickBtnDiv()
       res.innerHTML = res.innerHTML + '/';
     }
 }
+// Calculate the answer.
+function clickbtnEql()
+{
+  let operator;
+  let resultDec;
+  let resValue = document.getElementById("res").innerHTML;
+  let resArray = Array.from(resValue);
+  for(i=0; i<resArray.length; i++){
+    if (resArray[i]!="1" && resArray[i]!="0") operator=resArray[i];
+  }
+  let resParts = resValue.split(operator);
+  let operand1dec = parseInt(resParts[0], 2);
+  let operand2dec = parseInt(resParts[1], 2);
+  switch(operator) {
+  case "+":
+    resultDec=parseInt(operand1dec,10) + parseInt(operand2dec,10);
+    break;
+  case "-":
+    resultDec=parseInt(operand1dec,10) - parseInt(operand2dec,10);
+    break;
+  case "*":
+    resultDec=parseInt(operand1dec,10) * parseInt(operand2dec,10);
+    break;
+  case "/":
+    resultDec=parseInt(operand1dec,10) / parseInt(operand2dec,10);
+    break;
+  default:
+    // code block
+      
+  }
+  //console.log(Number(resultDec).toString(2));
+  res.innerHTML = Number(resultDec).toString(2);
+}
+
 // check to see if an operator is present
 function opPres()
 {
