@@ -11,14 +11,14 @@
       <div id="res"></div>
         
         <div id="btns" class="buttonContainer">
-            <button id="btn0" class="buttonClass">0</button>
-            <button id="btn1" class="buttonClass">1</button>
-            <button id="btnClr" class="buttonClass">C</button>
-            <button id="btnEql" class="buttonClass">=</button>
-            <button id="btnSum" onclick="" class="buttonClass">+</button>
-            <button id="btnSub" class="buttonClass">-</button>
-            <button id="btnMul" class="buttonClass">*</button>
-            <button id="btnDiv" class="buttonClass">/</button>
+            <button id="btn0" onclick="clickBtn0()" class="buttonClass">0</button>
+            <button id="btn1" onclick="clickBtn1()" class="buttonClass">1</button>
+            <button id="btnClr" onclick="clickBtnClr()" class="buttonClass">C</button>
+            <button id="btnEql" onclick="" class="buttonClass">=</button>
+            <button id="btnSum" onclick="clickBtnSum()" class="buttonClass">+</button>
+            <button id="btnSub" onclick="clickBtnSub()" class="buttonClass">-</button>
+            <button id="btnMul" onclick="clickBtnMul()" class="buttonClass">*</button>
+            <button id="btnDiv" onclick="clickBtnDiv()" class="buttonClass">/</button>
         </div>
     </body>
 </html>
@@ -54,3 +54,43 @@ body {
 }
 
 **** JS ****
+function clickBtn0()
+{
+    res.innerHTML = res.innerHTML + '0';
+}
+function clickBtn1()
+{
+    res.innerHTML = res.innerHTML + '1';
+}
+function clickBtnClr()
+{
+    res.innerHTML = '';
+}
+function clickBtnSum()
+{
+    // only append + if no operator is there
+    if(res.innerHTML.indexOf("+") == -1 && res.innerHTML.indexOf("-") == -1) && res.innerHTML.indexOf("*") == -1) && res.innerHTML.indexOf("/") == -1) {
+      res.innerHTML = res.innerHTML + '+';
+    }
+}
+function clickBtnSub()
+{
+    // only append - if it's not there
+    if(res.innerHTML.indexOf("-") == -1) {
+      res.innerHTML = res.innerHTML + '-';
+    }
+}
+function clickBtnMul()
+{
+    // only append * if it's not there
+    if(res.innerHTML.indexOf("*") == -1) {
+      res.innerHTML = res.innerHTML + '*';
+    }
+}
+function clickBtnDiv()
+{
+    // only append * if it's not there
+    if(res.innerHTML.indexOf("*") == -1) {
+      res.innerHTML = res.innerHTML + '*';
+    }
+}
